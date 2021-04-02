@@ -10,6 +10,11 @@ namespace Validaciones
     {
         static void Main(string[] args)
         {
+            Actividades A = new Actividades();
+            //A.A35();
+            //A.A36();
+            A.A37();
+            Console.ReadKey();
         }
     }
 }
