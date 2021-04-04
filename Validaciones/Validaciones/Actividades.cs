@@ -68,31 +68,50 @@ namespace Validaciones
             } while (!IngresoValido);
         }
 
-        //public void A38()
-        //{
-        //    bool IngresoValido = false;
-
-        //    do
-        //    {
-        //        Console.WriteLine("Ingrese un número: ");
-        //        string Ingreso = Console.ReadLine();
-
-        //        if (string.IsNullOrEmpty(Ingreso) || Ingreso.Length > 20 || Ingreso.Length < 10)
-        //        {
-        //            Console.WriteLine("No ingresó un texto válido");
-        //            continue;
-        //        }
-        //        IngresoValido = true;
-        //        Console.WriteLine("El texto ingresado es: " + Ingreso);
-
-        //    } while (!IngresoValido);
-
-        //    for (int i = 0; i < 0; i++)
-        //    {
-
-        //    }
-        //}
+        public void A38()
+        {
+            bool IngresoValido= false;
+            int[] ArrayIngreso = new int[5];
 
 
+            do
+            {
+                for (int i = 0; i < ArrayIngreso.Length; i++)
+                {
+                    do
+                    {
+                        Console.WriteLine("Ingrese un número en la posición {0}: ", i + 1);
+                        string Ingreso = Console.ReadLine();
+
+                        if (!int.TryParse(Ingreso, out int Salida))
+                        {
+                            Console.WriteLine("No ingresó un valor numérico");
+                        }
+                        else
+                        {
+                            ArrayIngreso[i] = Salida;
+                            IngresoValido = true;
+                        }
+                    } while (!IngresoValido);
+                }
+
+                if (ArrayIngreso[0] > ArrayIngreso[1] || ArrayIngreso[1] > ArrayIngreso[2] ||
+                  ArrayIngreso[2] > ArrayIngreso[3] || ArrayIngreso[3] > ArrayIngreso[4])
+                {
+                    Console.WriteLine("Secuencia errónea");
+                    IngresoValido = false;
+                }
+                else
+                {
+                    IngresoValido = true;
+                }
+            } while (!IngresoValido);
+
+            foreach(int num in ArrayIngreso)
+            {
+                Console.Write(num + " ");
+            }
+                
+        }
     }
 }
