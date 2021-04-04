@@ -73,26 +73,25 @@ namespace Validaciones
             bool IngresoValido= false;
             int[] ArrayIngreso = new int[5];
 
-
             do
             {
                 for (int i = 0; i < ArrayIngreso.Length; i++)
                 {
-                    do
+                    IngresoValido = false;
+                    while (!IngresoValido)
                     {
                         Console.WriteLine("Ingrese un número en la posición {0}: ", i + 1);
                         string Ingreso = Console.ReadLine();
 
-                        if (!int.TryParse(Ingreso, out int Salida))
+                        if (!int.TryParse(Ingreso, out ArrayIngreso[i]))
                         {
                             Console.WriteLine("No ingresó un valor numérico");
                         }
                         else
                         {
-                            ArrayIngreso[i] = Salida;
                             IngresoValido = true;
                         }
-                    } while (!IngresoValido);
+                    } 
                 }
 
                 if (ArrayIngreso[0] > ArrayIngreso[1] || ArrayIngreso[1] > ArrayIngreso[2] ||
